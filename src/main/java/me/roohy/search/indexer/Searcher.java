@@ -83,6 +83,7 @@ public class Searcher {
 		for(ScoreDoc scoreDoc : hits.scoreDocs){
 			Document doc = searcher.doc(scoreDoc.doc);
 			result.add(Integer.parseInt(doc.get("serialNumber")));
+			System.out.println(doc.get("url"));
 			System.out.println(doc.get("title"));
 		}
 		searcher.close();

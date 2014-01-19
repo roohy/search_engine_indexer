@@ -5,9 +5,12 @@ import java.util.List;
 
 public class Item{
 //	List<String> tags;
+	
 	String body;
 	String title;
+	String url;
 	List<String> links;
+	float rank;
 	/*String link;
 	String question_is;
 	String creation_date;

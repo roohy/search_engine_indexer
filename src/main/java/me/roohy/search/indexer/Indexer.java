@@ -10,6 +10,7 @@ import org.apache.lucene.analysis.SimpleAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.FieldSelectorResult;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
@@ -112,6 +113,10 @@ private IndexWriter indexWriter;
 		result.add(new Field("body" ,item.body , Field.Store.YES , Field.Index.ANALYZED));
 		result.add(new Field("title",item.title ,
 				Field.Store.YES , Field.Index.ANALYZED));
+		System.out.println("uRL is "+item.url);
+		result.add(new Field("url",item.url , Field.Store.YES ,
+				Field.Index.ANALYZED));
+		result.setBoost(item.rank);
 		/*result.add(new Field("link",item.link,
 				Field.Store.YES,Field.Index.NOT_ANALYZED));
 		result.add(new Field("creation_date",item.creation_date,

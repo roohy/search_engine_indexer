@@ -49,7 +49,11 @@ public class App
 			  return encoding.decode(ByteBuffer.wrap(encoded)).toString();
 			}
 	public static void main(String[] args)throws Exception {
-		//checking to see if it is an index or search 
+		//checking to see if it is an index or search
+		System.out.println("arguments "+ args.length );
+		for(String st : args){
+			System.out.println(st);
+		}
 		if(args.length <= 0 ){
 			System.out.println("error error, arguments");
 			return;
