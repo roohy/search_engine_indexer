@@ -116,6 +116,9 @@ private IndexWriter indexWriter;
 		System.out.println("uRL is "+item.url);
 		result.add(new Field("url",item.url , Field.Store.YES ,
 				Field.Index.ANALYZED));
+		
+		result.add(new Field("rank",Float.toString(item.rank),Field.Store.YES ,
+				Field.Index.NO));
 		result.setBoost(item.rank);
 		/*result.add(new Field("link",item.link,
 				Field.Store.YES,Field.Index.NOT_ANALYZED));
@@ -150,8 +153,8 @@ private IndexWriter indexWriter;
 	public void indexItems(SearchItemClass items)throws Exception{
 		
 		for(Item item : items.content){
-			System.out.println("indexing "+item.title);
-			
+//			System.out.println("indexing "+item.title);
+			System.out.println("indexing with"+ item.rank);
 			Document doc = getDocumentFromItem(item);
 			doc.add(new Field("serialNumber",count.toString(),
 					Field.Store.YES,Field.Index.NO));

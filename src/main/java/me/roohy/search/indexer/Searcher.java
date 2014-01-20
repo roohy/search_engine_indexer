@@ -85,6 +85,7 @@ public class Searcher {
 			result.add(Integer.parseInt(doc.get("serialNumber")));
 			System.out.println(doc.get("url"));
 			System.out.println(doc.get("title"));
+			System.out.println(doc.get("rank"));
 		}
 		searcher.close();
 		return result;
